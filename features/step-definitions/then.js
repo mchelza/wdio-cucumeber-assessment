@@ -78,56 +78,67 @@ Then(/^verify all the registered station are available$/, async (datatable) => {
 });
 
 Then(/^verify the calculated (.*)$/, async (amount) => {
-  let actVal = await (await calculatorPage.borrowAmt).getText();
-  console.log(`actual value: ${actVal}`);
-  chai.expect(actVal).to.eql(amount);
+  try {
+    //Verify the calculated borrowing amt
+    let actVal = await (await calculatorPage.borrowAmt).getText();
+    chai.expect(actVal).to.eql(amount);
+  } catch (error) {
+    error.message = `Error in asserting the borrowing amount. ${error.message}`;
+    throw error;
+  }
 });
 
 Then(
   /^verify the default values are displayed in the calculator$/,
   async () => {
-    chai
-      .expect(
-        await (
-          await (await $("//label[@for='application_type_single']")).getText()
-        ).trim()
-      )
-      .to.eql("Single");
-    chai
-      .expect(
-        await (await calculatorPage.numberOfDependentsDropDown).getValue()
-      )
-      .to.eql("0");
-    chai
-      .expect(
-        await (
-          await (await $("//label[@for='borrow_type_home']")).getText()
-        ).trim()
-      )
-      .to.eql("Home to live in");
-    chai
-      .expect(await (await calculatorPage.yourAnnualIncome).getValue())
-      .to.eql("0");
-    chai
-      .expect(await (await calculatorPage.yourAnnualOtherIncome).getValue())
-      .to.eql("0");
+    try {
+      //Verify if the default values are displayed in the borrowing calculator
+      chai
+        .expect(
+          await (
+            await (await calculatorPage.application).getText()
+          ).trim()
+        )
+        .to.eql("Single");
+      chai
+        .expect(
+          await (await calculatorPage.numberOfDependentsDropDown).getValue()
+        )
+        .to.eql("0");
+      chai
+        .expect(
+          await (
+            await (await calculatorPage.property).getText()
+          ).trim()
+        )
+        .to.eql("Home to live in");
+      chai
+        .expect(await (await calculatorPage.yourAnnualIncome).getValue())
+        .to.eql("0");
+      chai
+        .expect(await (await calculatorPage.yourAnnualOtherIncome).getValue())
+        .to.eql("0");
 
-    chai
-      .expect(await (await calculatorPage.monthlyLivingExp).getValue())
-      .to.eql("0");
-    chai
-      .expect(await (await calculatorPage.homeLoanMonthlyRepayments).getValue())
-      .to.eql("0");
-    chai
-      .expect(
-        await (await calculatorPage.otherLoanMonthlyRepayments).getValue()
-      )
-      .to.eql("0");
-    chai
-      .expect(await (await calculatorPage.otherMonthlyCommitments).getValue())
-      .to.eql("0");
-    chai
-      .expect(await (await calculatorPage.totalCreditCardLimits).getValue())
-      .to.eql("0");
+      chai
+        .expect(await (await calculatorPage.monthlyLivingExp).getValue())
+        .to.eql("0");
+      chai
+        .expect(await (await calculatorPage.homeLoanMonthlyRepayments).getValue())
+        .to.eql("0");
+      chai
+        .expect(
+          await (await calculatorPage.otherLoanMonthlyRepayments).getValue()
+        )
+        .to.eql("0");
+      chai
+        .expect(await (await calculatorPage.otherMonthlyCommitments).getValue())
+        .to.eql("0");
+      chai
+        .expect(await (await calculatorPage.totalCreditCardLimits).getValue())
+        .to.eql("0");
+    } catch (error) {
+      error.message = `Error when verifying if the default value are set. ${error.message}`;
+      throw error;
+    }
   }
 );

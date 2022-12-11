@@ -91,39 +91,56 @@ Given(
 );
 
 Given(/^user opens browing calculator page$/, async () => {
-  console.log(`session ID : ${await browser.sessionId}`);
-  await browser.maximizeWindow();
-  await browser.url(
-    `https://www.anz.com.au/personal/home-loans/calculators-tools/much-borrow/`
-  );
-  await browser.waitUntil(
-    async () => await browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 10000,
-      interval: 5000,
-    }
-  );
-  await chai
-    .expect(await browser.getTitle())
-    .to.includes("Home loan borrowing power calculator");
+  try {
+    //Maximize the browser and wait for the page to load
+    await browser.maximizeWindow();
+    await browser.url(`/personal/home-loans/calculators-tools/much-borrow/`);
+    await browser.waitUntil(
+      async () =>
+        await browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 10000,
+        interval: 5000,
+      }
+    );
+    //assert if the page title is matching
+    await chai
+      .expect(await browser.getTitle())
+      .to.includes("Home loan borrowing power calculator");
+  } catch (error) {
+    error.message = `Error when opening the browser calculator page, ${error.message}`;
+    throw error;
+  }
 });
 
 Given(
   /^user inputs (.*), (.*) and (.*) under details section$/,
   async (applicationType, dependents, propertyFor) => {
-    await (await calculatorPage.applicationType(applicationType)).click();
-    await (
-      await calculatorPage.numberOfDependentsDropDown
-    ).selectByVisibleText(dependents);
-    await (await calculatorPage.propertyToBuy(propertyFor)).click();
+    try {
+      //Input the values under your details section
+      await (await calculatorPage.applicationType(applicationType)).click();
+      await (
+        await calculatorPage.numberOfDependentsDropDown
+      ).selectByVisibleText(dependents);
+      await (await calculatorPage.propertyToBuy(propertyFor)).click();
+    } catch (error) {
+      error.message = `Error while trying input the details in Your details section, ${error.message}`;
+      throw error;
+    }
   }
 );
 
 Given(
   /^user inputs (.*) and (.*) under Your earnings section$/,
   async (annualIncome, otherIncome) => {
-    await (await calculatorPage.yourAnnualIncome).setValue(annualIncome);
-    await (await calculatorPage.yourAnnualOtherIncome).setValue(otherIncome);
+    try {
+      //Input the details in the Your earning section
+      await (await calculatorPage.yourAnnualIncome).setValue(annualIncome);
+      await (await calculatorPage.yourAnnualOtherIncome).setValue(otherIncome);
+    } catch (error) {
+      error.message = `Error while trying input the details in Your earnings section, ${error.message}`;
+      throw error;
+    }
   }
 );
 
@@ -136,19 +153,25 @@ Given(
     monthlyCommit,
     totalCreditLimit
   ) => {
-    await (await calculatorPage.monthlyLivingExp).click();
-    await (await calculatorPage.monthlyLivingExp).setValue(montlyExpense);
-    await (
-      await calculatorPage.homeLoanMonthlyRepayments
-    ).setValue(homeLoanRepay);
-    await (
-      await calculatorPage.otherLoanMonthlyRepayments
-    ).setValue(otherRepay);
-    await (
-      await calculatorPage.otherMonthlyCommitments
-    ).setValue(monthlyCommit);
-    await (
-      await calculatorPage.totalCreditCardLimits
-    ).setValue(totalCreditLimit);
+    try {
+      //Input the details in the Your expense section
+      await (await calculatorPage.monthlyLivingExp).click();
+      await (await calculatorPage.monthlyLivingExp).setValue(montlyExpense);
+      await (
+        await calculatorPage.homeLoanMonthlyRepayments
+      ).setValue(homeLoanRepay);
+      await (
+        await calculatorPage.otherLoanMonthlyRepayments
+      ).setValue(otherRepay);
+      await (
+        await calculatorPage.otherMonthlyCommitments
+      ).setValue(monthlyCommit);
+      await (
+        await calculatorPage.totalCreditCardLimits
+      ).setValue(totalCreditLimit);
+    } catch (error) {
+      error.message = `Error while trying input the details in Your expense section, ${error.message}`;
+      throw error;
+    }
   }
 );

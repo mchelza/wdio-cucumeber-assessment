@@ -31,6 +31,14 @@ class CalculatorPage{
     get borrowAmt() {return $("#borrowResultTextAmount")}
 
     get startOverBtn(){ return $("(//button[@class='start-over'])[1]")}
+
+    get calculatorError(){ return $("//div[@class='borrow__error__text'][@aria-live='assertive']")}
+
+    get computingEle() {return $("//span[@aria-live='assertive']")}
+
+    get application() {return $("//label[@for='application_type_single']")}
+
+    get property() {return $("//label[@for='borrow_type_home']")}
 }
 
 module.exports = new CalculatorPage()
