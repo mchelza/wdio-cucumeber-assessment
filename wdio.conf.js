@@ -1,4 +1,5 @@
 const allure = require('allure-commandline')
+const fs = require('fs')
 exports.config = {
     //
     // ====================
@@ -73,7 +74,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'error',
+    logLevel: 'info',
     //
     // Set specific log levels per logger
     // loggers:
@@ -97,7 +98,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: "https://www.anz.com.au",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -182,8 +183,12 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+        if(fs.existsSync(`${process.cwd()}/allure-results`) && fs.existsSync(`${process.cwd()}/allure-report`)){
+            fs.rmdirSync(`${process.cwd()}/allure-results/`, { recursive: true });
+            fs.rmdirSync(`${process.cwd()}/allure-report/`, { recursive: true });
+        }
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.

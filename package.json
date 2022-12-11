@@ -23,6 +23,7 @@
     },
     "scripts": {
         "wdio": "wdio run wdio.conf.js",
-        "wdioTest": "wdio run ./config/wdio.test.conf.js"
+        "wdioTest": "wdio run ./config/wdio.test.conf.js",
+        "apiTest": "wdio run ./config/wdio.api.conf.js"
     }
 }

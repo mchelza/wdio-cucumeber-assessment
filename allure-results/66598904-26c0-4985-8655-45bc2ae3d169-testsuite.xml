@@ -1,0 +1,163 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1670768449454' stop='1670768463941'>
+    <name>Borrowing Calculator</name>
+    <title>Borrowing Calculator</title>
+    <test-cases>
+        <test-case start='1670768449467' status='passed' stop='1670768456154'>
+            <name>CALC_001:Verify generated borrowing amount for the given parameters</name>
+            <title>CALC_001:Verify generated borrowing amount for the given parameters</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='feature' value='Borrowing Calculator'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-108.0.5359.99'/>
+            </parameters>
+            <steps>
+                <step start='1670768449468' status='passed' stop='1670768454063'>
+                    <name>Given user opens browing calculator page</name>
+                    <title>Given user opens browing calculator page</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768454063' status='passed' stop='1670768454196'>
+                    <name>And user inputs single, 0 and Home to Live in under details section</name>
+                    <title>And user inputs single, 0 and Home to Live in under details section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768454196' status='passed' stop='1670768454392'>
+                    <name>And user inputs 80000 and 10000 under Your earnings section</name>
+                    <title>And user inputs 80000 and 10000 under Your earnings section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768454392' status='passed' stop='1670768454802'>
+                    <name>And user inputs 500, 0, 100, 0 and 10000 under your expenses section</name>
+                    <title>And user inputs 500, 0, 100, 0 and 10000 under your expenses section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768454802' status='passed' stop='1670768456124'>
+                    <name>When the "calculate" button is clicked</name>
+                    <title>When the "calculate" button is clicked</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768456124' status='passed' stop='1670768456153'>
+                    <name>Then verify the calculated $447,000</name>
+                    <title>Then verify the calculated $447,000</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1670768456154' status='passed' stop='1670768460297'>
+            <name>CALC_002:Verify generated borrowing amount for the given parameters</name>
+            <title>CALC_002:Verify generated borrowing amount for the given parameters</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='feature' value='Borrowing Calculator'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-108.0.5359.99'/>
+            </parameters>
+            <steps>
+                <step start='1670768456155' status='passed' stop='1670768457623'>
+                    <name>Given user opens browing calculator page</name>
+                    <title>Given user opens browing calculator page</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768457623' status='passed' stop='1670768457988'>
+                    <name>And user inputs single, 2 and Residential investment under details section</name>
+                    <title>And user inputs single, 2 and Residential investment under details section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768457988' status='passed' stop='1670768458265'>
+                    <name>And user inputs 100000 and 0 under Your earnings section</name>
+                    <title>And user inputs 100000 and 0 under Your earnings section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768458265' status='passed' stop='1670768458905'>
+                    <name>And user inputs 1000, 0, 500, 500 and 20000 under your expenses section</name>
+                    <title>And user inputs 1000, 0, 500, 500 and 20000 under your expenses section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768458906' status='passed' stop='1670768460249'>
+                    <name>When the "calculate" button is clicked</name>
+                    <title>When the "calculate" button is clicked</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768460249' status='passed' stop='1670768460297'>
+                    <name>Then verify the calculated $176,000</name>
+                    <title>Then verify the calculated $176,000</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1670768460298' status='passed' stop='1670768463936'>
+            <name>CALC_003: Verify start over button resets the calculator with default values</name>
+            <title>CALC_003: Verify start over button resets the calculator with default values</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='feature' value='Borrowing Calculator'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-108.0.5359.99'/>
+            </parameters>
+            <steps>
+                <step start='1670768460298' status='passed' stop='1670768462164'>
+                    <name>Given user opens browing calculator page</name>
+                    <title>Given user opens browing calculator page</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768462164' status='passed' stop='1670768462395'>
+                    <name>And user inputs joint, 3 and Residential investment under details section</name>
+                    <title>And user inputs joint, 3 and Residential investment under details section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768462395' status='passed' stop='1670768462674'>
+                    <name>And user inputs 80000 and 10000 under Your earnings section</name>
+                    <title>And user inputs 80000 and 10000 under Your earnings section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768462674' status='passed' stop='1670768463306'>
+                    <name>And user inputs 500, 500, 100, 200 and 10000 under your expenses section</name>
+                    <title>And user inputs 500, 500, 100, 200 and 10000 under your expenses section</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768463306' status='passed' stop='1670768463627'>
+                    <name>When the "start over" button is clicked</name>
+                    <title>When the "start over" button is clicked</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670768463627' status='passed' stop='1670768463933'>
+                    <name>Then verify the default values are displayed in the calculator</name>
+                    <title>Then verify the default values are displayed in the calculator</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

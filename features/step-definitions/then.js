@@ -52,15 +52,13 @@ Then(/^verify all the registered station are available$/, async (datatable) => {
   try {
     //get the actual data and datatable values
     let dt = await datatable.hashes();
-    let actualData = await JSON.parse(
-      fs.readFileSync(resFilePath, { encoding: "utf-8" })
-    );
+    let actData = await JSON.parse(fs.readFileSync(resFilePath, { encoding: "utf-8" }))
 
     //With the datatable values search through the actual data and see if the expected value is displayed
     for (let index = 0; index < dt.length; index++) {
       let val = dt[index].external_id;
       let count = 0;
-      actualData.every((element) => {
+      actData.every((element) => {
         if (val === element.external_id) {
           return false;
         }
@@ -68,7 +66,7 @@ Then(/^verify all the registered station are available$/, async (datatable) => {
         if (count === dt.length) {
           throw Error(`${val} is not available in the get API response`);
         }
-        return true;
+        return true
       });
     }
   } catch (error) {

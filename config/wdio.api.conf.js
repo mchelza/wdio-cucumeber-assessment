@@ -3,6 +3,7 @@ const merge = require('deepmerge')
 
 exports.config= merge(baseConfig.config,{
     specs: [
-        '../features/borrowingCalculator.feature'
-    ]
+        '../features/weatherStationAPI.feature'
+    ],
+    headless:true
 })
