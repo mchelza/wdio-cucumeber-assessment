@@ -7,7 +7,7 @@ Make sure Node.js is installed on the Machine
 ## Steps to Install
 1. clone the project for the GitHuB
 ```bash
-git clone https://github.com/mchelza/WDIO.git
+git clone https://github.com/mchelza/wdio-cucumeber-assessment.git
 ```
 2. Create a new local branch and checkout it
 ```bash
