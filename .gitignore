@@ -1,2 +1,6 @@
 # Node modules folder to be ignored
 node_modules
+
+#Ignore files related to allure
+allure-report
+allure-results

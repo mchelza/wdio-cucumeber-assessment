@@ -21,7 +21,7 @@ Given(
     console.log(`>>value from file: ${typeof data}`);
     console.log(`>>value of data: ${JSON.stringify(data)}`);
     console.log(`>>payload from data: ${JSON.stringify(data[payload])}`);
-    let res = await api.POST(data[payload], flag);
+    let res = await api.registerStation(data[payload], flag);
     console.log(`>>res from api: ${JSON.stringify(res)}`);
     if (flag === false) {
       await fs.writeFileSync(
@@ -35,7 +35,7 @@ Given(
 );
 
 Given(/^user makes a get call to list the weather station$/, async () => {
-  let res = await api.GET();
+  let res = await api.getListOfStations();
   console.log(`>>Get API response: ${JSON.stringify(res)}`);
   fs.writeFileSync(resFilePath, JSON.stringify(res.body, undefined, 2));
 });
@@ -64,12 +64,12 @@ Given(
         return true;
       });
       if (flag == true) {
-        await api.DEL(id);
+        await api.deleteStation(id);
       }
     }
     await fs.writeFileSync(
       resFilePath,
-      JSON.stringify((await api.GET()).body, undefined, 2)
+      JSON.stringify((await api.getListOfStations()).body, undefined, 2)
     );
   }
 );

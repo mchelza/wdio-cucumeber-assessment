@@ -1,42 +1,53 @@
-const { expect } = require('chai');
-const request = require('supertest')
-const dotenv = require('dotenv').config()
-const axios = require('axios')
+const { expect } = require("chai");
+const request = require("supertest");
+const dotenv = require("dotenv").config();
+const axios = require("axios");
 
+let apiKey = process.env.API_KEY;
 
-class APIHelper{
-
-    async POST(paylaod, flag ){
-        let apiKey = (flag==true) ? process.env.API_KEY : ""
-        console.log(`apiKey value: ${apiKey}`);
-        return await request(process.env.API_URL)
-        .post('/data/3.0/stations')
-        .query({"appid":apiKey})
+class APIHelper {
+  async registerStation(paylaod, flag) {
+    try {
+      if (flag == false) apiKey = "";
+      //   let apiKey = flag == true ? process.env.API_KEY : "";
+      return await request(process.env.API_URL)
+        .post("/data/3.0/stations")
+        .query({ appid: apiKey })
         .set("Content-Type", "application/json")
         .set("Accept", "application/json")
         .send(paylaod);
+    } catch (error) {
+      error.message = `Error while trying to register the station: ${error.message}`;
+      throw error;
     }
+  }
 
-    async GET(){
-        let apiKey = process.env.API_KEY
-        console.log(`apiKey value: ${apiKey}`);
-        return await request(process.env.API_URL)
-        .get('/data/3.0/stations')
-        .query({"appid":apiKey})
-        .set("Accept", "*/*")
+  async getListOfStations() {
+    try {
+      //   let apiKey = process.env.API_KEY;
+      return await request(process.env.API_URL)
+        .get("/data/3.0/stations")
+        .query({ appid: apiKey })
+        .set("Accept", "*/*");
+    } catch (error) {
+      error.message = `Error while trying to get the list of stations: ${error.message}`;
+      throw error;
     }
+  }
 
-    async DEL(val){
-        let apiKey = process.env.API_KEY
-        console.log(`apiKey value: ${apiKey}`);
-        let response = await request(process.env.API_URL)
+  async deleteStation(val) {
+    try {
+      // let apiKey = process.env.API_KEY;
+      await request(process.env.API_URL)
         .del(`/data/3.0/stations/${val}`)
-        .query({"appid":apiKey})
-        .set("Content-Type", "application/json")
-        console.log(`Tesing :${JSON.stringify(response)}`);
-        return response
-        
+        .query({ appid: apiKey })
+        .set("Content-Type", "application/json");
+      console.log(`Tesing :${JSON.stringify(response)}`);
+    } catch (error) {
+      error.message = `Error while trying to delete the station id: ${val}. ${error.message}`;
+      throw error;
     }
+  }
 }
 
-module.exports = new APIHelper()
+module.exports = new APIHelper();

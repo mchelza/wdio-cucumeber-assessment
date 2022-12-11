@@ -2,7 +2,7 @@
 This automation framework was created the executed the test in UI and API.
 
 ## Prerequisite 
-Make sure Node.js is installed on the Machine
+Make sure Node.js and Visual Studio Code editing tool or any other tool is installed on the Machine
 
 ## Steps to Install
 1. clone the project for the GitHuB
