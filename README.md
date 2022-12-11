@@ -39,3 +39,6 @@ npm run uiTest
 ```bash
 allure open
 ```
+
+### Note:
+Tests were executed in Windows and were verified
