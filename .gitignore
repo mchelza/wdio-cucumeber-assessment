@@ -1,6 +1,4 @@
-# Node modules folder to be ignored
-node_modules
-
-#Ignore files related to allure
-allure-report
-allure-results
+# Node modules and allure reports and result folder to be ignored
+node_modules/
+allure-report/
+allure-results/

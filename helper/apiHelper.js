@@ -8,8 +8,7 @@ let apiKey = process.env.API_KEY;
 class APIHelper {
   async registerStation(paylaod, flag) {
     try {
-      if (flag == false) apiKey = "";
-      //   let apiKey = flag == true ? process.env.API_KEY : "";
+      let apiKey = flag == true ? process.env.API_KEY : "";
       return await request(process.env.API_URL)
         .post("/data/3.0/stations")
         .query({ appid: apiKey })
@@ -24,7 +23,7 @@ class APIHelper {
 
   async getListOfStations() {
     try {
-      //   let apiKey = process.env.API_KEY;
+      let apiKey = process.env.API_KEY;
       return await request(process.env.API_URL)
         .get("/data/3.0/stations")
         .query({ appid: apiKey })
@@ -37,12 +36,11 @@ class APIHelper {
 
   async deleteStation(val) {
     try {
-      // let apiKey = process.env.API_KEY;
+      let apiKey = process.env.API_KEY;
       await request(process.env.API_URL)
         .del(`/data/3.0/stations/${val}`)
         .query({ appid: apiKey })
         .set("Content-Type", "application/json");
-      console.log(`Tesing :${JSON.stringify(response)}`);
     } catch (error) {
       error.message = `Error while trying to delete the station id: ${val}. ${error.message}`;
       throw error;

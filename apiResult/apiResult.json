@@ -1,4 +1,24 @@
-{
-  "cod": 401,
-  "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."
-}
+[
+  {
+    "id": "6395ae6c8885c2000177a40f",
+    "created_at": "2022-12-11T10:18:20.224Z",
+    "updated_at": "2022-12-11T10:18:20.224Z",
+    "external_id": "DEMO_TEST001",
+    "name": "Team Demo Test Station 001",
+    "longitude": -122.43,
+    "latitude": 33.33,
+    "altitude": 222,
+    "rank": 10
+  },
+  {
+    "id": "6395ae6c8885c2000177a410",
+    "created_at": "2022-12-11T10:18:20.755Z",
+    "updated_at": "2022-12-11T10:18:20.755Z",
+    "external_id": "DEMO_TEST002",
+    "name": "Team Demo Test Station 002",
+    "longitude": -122.44,
+    "latitude": 44.44,
+    "altitude": 111,
+    "rank": 10
+  }
+]
