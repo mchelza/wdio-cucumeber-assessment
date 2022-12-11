@@ -22,8 +22,8 @@
         "wdio-chromedriver-service": "^8.0.1"
     },
     "scripts": {
-        "wdio": "wdio run wdio.conf.js",
-        "wdioTest": "wdio run ./config/wdio.test.conf.js",
-        "apiTest": "wdio run ./config/wdio.api.conf.js"
+        "wdio": "set HEADLESS=N && wdio run wdio.conf.js",
+        "uiTest": "set HEADLESS=N && wdio run ./config/wdio.test.conf.js",
+        "apiTest": "set HEADLESS=Y && wdio run ./config/wdio.api.conf.js"
     }
 }

@@ -1,0 +1,145 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1670777432932' stop='1670777436271'>
+    <name>Testcase for Weather Station API</name>
+    <title>Testcase for Weather Station API</title>
+    <test-cases>
+        <test-case start='1670777432957' status='passed' stop='1670777433103'>
+            <name>WSTA_001: Verify Weather Station is not registered when the API key is not used</name>
+            <title>WSTA_001: Verify Weather Station is not registered when the API key is not used</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+                <label name='feature' value='Testcase for Weather Station API'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-108.0.5359.99'/>
+            </parameters>
+            <steps>
+                <step start='1670777432963' status='passed' stop='1670777433099'>
+                    <name>Given user makes a post call with Payload1 to register weather station without API key</name>
+                    <title>Given user makes a post call with Payload1 to register weather station without API key</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670777433099' status='passed' stop='1670777433101'>
+                    <name>Then verify the response body from the API with the ExpectedInvalidKeyResponse</name>
+                    <title>Then verify the response body from the API with the ExpectedInvalidKeyResponse</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1670777433104' status='passed' stop='1670777433578'>
+            <name>WSTA_002: Register weather station</name>
+            <title>WSTA_002: Register weather station</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+                <label name='feature' value='Testcase for Weather Station API'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-108.0.5359.99'/>
+            </parameters>
+            <steps>
+                <step start='1670777433105' status='passed' stop='1670777433576'>
+                    <name>Given user makes a post call with Payload1 to register weather station with API key</name>
+                    <title>Given user makes a post call with Payload1 to register weather station with API key</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670777433577' status='passed' stop='1670777433578'>
+                    <name>Then verify the status code 201 for the response</name>
+                    <title>Then verify the status code 201 for the response</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1670777433579' status='passed' stop='1670777434064'>
+            <name>WSTA_003: Register weather station</name>
+            <title>WSTA_003: Register weather station</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+                <label name='feature' value='Testcase for Weather Station API'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-108.0.5359.99'/>
+            </parameters>
+            <steps>
+                <step start='1670777433579' status='passed' stop='1670777434063'>
+                    <name>Given user makes a post call with Payload2 to register weather station with API key</name>
+                    <title>Given user makes a post call with Payload2 to register weather station with API key</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670777434063' status='passed' stop='1670777434063'>
+                    <name>Then verify the status code 201 for the response</name>
+                    <title>Then verify the status code 201 for the response</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1670777434064' status='passed' stop='1670777434509'>
+            <name>WSTA_004: verify the newly added weather station</name>
+            <title>WSTA_004: verify the newly added weather station</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+                <label name='feature' value='Testcase for Weather Station API'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-108.0.5359.99'/>
+            </parameters>
+            <steps>
+                <step start='1670777434064' status='passed' stop='1670777434505'>
+                    <name>Given user makes a get call to list the weather station</name>
+                    <title>Given user makes a get call to list the weather station</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1670777434505' status='passed' stop='1670777434509'>
+                    <name>Then verify all the registered station are available</name>
+                    <title>Then verify all the registered station are available</title>
+                    <attachments>
+                        <attachment title='Data Table' source='b5611742-ac2a-4344-8a19-6f6586f1e0cb-attachment.csv' type='text/csv' size='38'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1670777434509' status='passed' stop='1670777436271'>
+            <name>WSTA_005: Delete the added weater Station</name>
+            <title>WSTA_005: Delete the added weater Station</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+                <label name='feature' value='Testcase for Weather Station API'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-108.0.5359.99'/>
+            </parameters>
+            <steps>
+                <step start='1670777434510' status='passed' stop='1670777436271'>
+                    <name>Given user makes a api call to delete all the weather station</name>
+                    <title>Given user makes a api call to delete all the weather station</title>
+                    <attachments>
+                        <attachment title='Data Table' source='b3ee81f6-50ab-4dc6-8b0d-2b422795673d-attachment.csv' type='text/csv' size='38'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

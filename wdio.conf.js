@@ -1,5 +1,7 @@
 const allure = require('allure-commandline')
 const fs = require('fs')
+let headless = process.env.HEADLESS
+
 exports.config = {
     //
     // ====================
@@ -25,7 +27,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './features/*.feature'
+        './test/features/*.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -61,7 +63,12 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        'goog:chromeOptions': {
+            // to run chrome headless the following flags are required
+            // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
+            args: headless.toUpperCase().trim() === "Y" ? ["--headless"]: []
+            }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -147,7 +154,7 @@ exports.config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/*.js'],
+        require: ['./test/step-definitions/*.js'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -272,8 +279,11 @@ exports.config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {Object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+    afterStep: async function (step, scenario, result, context) {
+        if (!result.passed) {
+            await browser.takeScreenshot();
+          }
+    },
     /**
      *
      * Runs after a Cucumber Scenario.

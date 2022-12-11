@@ -20,9 +20,17 @@ npm install
 ```
 
 ## To execute the Tests
-1. To run the test, use this command in the Terminal.
+1. To run both the UI and API test, use this command in the Terminal.
 ```bash
-npm run wdioTest
+npm run wdio
+```
+2. To run the API test, use this command in the Terminal.
+```bash
+npm run apiTest
+```
+1. To run the UI test, use this command in the Terminal.
+```bash
+npm run uiTest
 ```
 
 ## Allure Report:
