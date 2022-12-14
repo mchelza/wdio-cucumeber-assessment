@@ -1,7 +1,6 @@
 const { expect } = require("chai");
 const request = require("supertest");
 const dotenv = require("dotenv").config();
-const axios = require("axios");
 
 let apiKey = process.env.API_KEY;
 
