@@ -1,8 +1,8 @@
 # wdio-cucumeber-assessment
-This automation framework was created the executed the test in UI and API.
+This automation framework was created for the execution the test in UI and API.
 
 ## Prerequisite 
-Make sure Node.js and Visual Studio Code editing tool or any other tool is installed on the Machine
+Make sure Node.js and Visual Studio Code editing tool are installed in the test Machine
 
 ## Steps to Install
 1. clone the project for the GitHuB
